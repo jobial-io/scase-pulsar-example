@@ -15,7 +15,7 @@ name := "scase-pulsar-example"
 ThisBuild / organization := "io.jobial"
 ThisBuild / scalaVersion := "2.13.6"
 ThisBuild / crossScalaVersions := Seq("2.11.12", "2.12.13", "2.13.6")
-ThisBuild / version := "0.4.0"
+ThisBuild / version := "0.5.3"
 ThisBuild / scalacOptions += "-target:jvm-1.8"
 ThisBuild / Test / packageBin / publishArtifact := true
 ThisBuild / Test / packageSrc / publishArtifact := true
@@ -28,6 +28,7 @@ import xerial.sbt.Sonatype._
 lazy val commonSettings = Seq(
   publishConfiguration := publishConfiguration.value.withOverwrite(true),
   publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true),
+  publishM2Configuration := publishM2Configuration.value.withOverwrite(true),
   publishTo := publishTo.value.orElse(sonatypePublishToBundle.value),
   sonatypeProjectHosting := Some(GitHubHosting("jobial-io", "scase", "orbang@jobial.io")),
   organizationName := "Jobial OÜ",
@@ -37,7 +38,7 @@ lazy val commonSettings = Seq(
   addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1")
 )
 
-lazy val ScaseVersion = "0.4.0"
+lazy val ScaseVersion = "0.5.3"
 lazy val SclapVersion = "1.1.7"
 
 lazy val root: Project = project
